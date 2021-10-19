@@ -14,6 +14,5 @@ const (
 )
 
 func PrepareMsg(prefix string, msg string) string {
-	//return fmt.Sprint(prefix, utils.GetTime(), " - ", namePkg, "] -> ", msg)
 	return fmt.Sprint(prefix, utils.GetTime(), msg)
 }

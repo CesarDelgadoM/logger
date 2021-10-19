@@ -9,7 +9,6 @@ import (
 )
 
 type logger struct {
-	NamePkg    string
 	PathFile   string
 	NameFile   string
 	PrintTrace bool
@@ -17,25 +16,15 @@ type logger struct {
 
 var log *logger
 var writer *bufio.Writer
-var nPkg string
 
-func InitLooger(namePkg string, pathFile string, nameFile string, printTrace bool) {
+func InitLooger(pathFile string, nameFile string, printTrace bool) {
 	CreateFile(pathFile + nameFile)
 	writer = GetWriter()
 	log = &logger{
-		NamePkg:    namePkg,
 		PathFile:   pathFile,
 		NameFile:   nameFile,
 		PrintTrace: printTrace,
 	}
-}
-
-func SetNamePkg(namePkg string) {
-	nPkg = namePkg
-}
-
-func GetNamePkg() string {
-	return nPkg
 }
 
 func (log *logger) logger(msg string) {
